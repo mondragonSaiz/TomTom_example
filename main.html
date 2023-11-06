@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css"
+    />
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+  </head>
+  <body style="width: 40vw; height: 350px; margin: 0; padding: 0">
+    <div id="map" style="width: 100%; height: 100%">TomTom traffic API</div>
+    <script>
+      const apiUrl =
+        "https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=aSvGbMyS57f1vU2L7WPLFjrFH7HOYMVs&point=20.9671,-89.6237";
+      console.log("Welcome to TomTom");
+      const getTrafficData = () => {
+        fetch(apiUrl)
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data); // This will log the XML data to the console
+            // You can parse the XML data or perform other operations as needed
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      };
+
+      getTrafficData();
+    </script>
+  </body>
+</html>
